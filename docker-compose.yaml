@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: testing
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
